@@ -1,17 +1,12 @@
 ﻿using AWS.Messaging;
-using AWS.Messaging.Services;
 using FargateAPIApp.Features.Orders.DTOs;
 using FargateAPIApp.Features.Orders.Models;
 using FargateAPIApp.Shared.Models;
 using FargateAPIApp.Shared.Repositories.Orders;
 using FluentValidation;
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using System.Net;
 using System.Runtime.CompilerServices;
-[assembly: InternalsVisibleTo("FargateAPIApp.Tests")]
-[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
+[assembly: InternalsVisibleTo("FargateAPIApp.Unit.Tests")]
 
 namespace FargateAPIApp.Features.Orders;
 public record CreateOrderResponse(OrderDto Order, string MessageId);

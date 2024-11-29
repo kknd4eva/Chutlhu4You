@@ -340,3 +340,9 @@ ASALocalRun/
 
 
 # End of https://www.gitignore.io/api/csharp
+
+### CDK-specific ignores ###
+*.swp
+cdk.context.json
+.cdk.staging
+cdk.out

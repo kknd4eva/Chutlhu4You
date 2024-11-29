@@ -24,7 +24,7 @@ namespace FargateAPIApp.Tests.APITests.Features.Orders
 
             var handler = new GetOrderQueryHandler(orderRepository, logger, orderMapper);
 
-            _ = orderRepository.GetOrderAsync("customer1", "order1").Returns(Task.FromResult<Order?>(null));
+            var o = orderRepository.GetOrderAsync("customer1", "order1").Returns(Task.FromResult<Order?>(null));
             var result = await handler.Handle(new GetOrderQuery("customer1", "order1"), default);
 
             Assert.Null(result.Order);
