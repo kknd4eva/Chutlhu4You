@@ -1,5 +1,5 @@
 {
-  "app": "dotnet run --project src/FargateApi/FargateApi.csproj",
+  "app": "dotnet run --project src/FargateApi/FargateApiCdk.csproj",
   "watch": {
     "include": [
       "**"

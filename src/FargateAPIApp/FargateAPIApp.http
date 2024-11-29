@@ -1,0 +1,11 @@
+@FargateAPIApp_HostAddress = https://localhost:7204
+
+###
+GET {{FargateAPIApp_HostAddress}}/hello/
+Accept: application/json
+###
+
+POST {{FargateAPIApp_HostAddress}}/order
+Accept: application/json
+
+###
