@@ -10,6 +10,7 @@ using FargateAPIApp.Features.Products.Models;
 using FargateAPIApp.Shared.Models;
 using FargateAPIApp.Shared.Repositories.Orders;
 using FargateAPIApp.Shared.Repositories.Products;
+using FargateWeb.DTOs.ProductDto;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -57,6 +58,7 @@ builder.Services.AddScoped<IValidator<CreateOrderCommand>, CreateOrderCommandVal
 builder.Services.AddScoped<IOrderRepository<Order>, OrderRepository>();
 builder.Services.AddScoped<IProductRepository<Product>, ProductRepository>();
 builder.Services.AddTransient<IMapper<Order, OrderDto>,  OrderMapper>();
+builder.Services.AddTransient<IMapper<Product, ProductDto>, ProductMapper>();
 
 
 

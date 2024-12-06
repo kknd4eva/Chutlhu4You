@@ -35,7 +35,7 @@ public static class CreateOrderEndpoint
                     return Results.BadRequest(new { Errors = errors });
                 }
 
-                var result = await sender.Send(command);
+                var result = await sender.Send(command); 
                 return Results.Created("/order", result);
             }
             catch (Exception ex)
@@ -104,7 +104,7 @@ internal sealed class  CreateOrderCommandHandler : IRequestHandler<CreateOrderCo
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to save order to repository");
+            _logger.LogError(ex, "Failed to save order {OrderId} to repository", request.Order.OrderId);
             throw;
         }
     }
