@@ -1,11 +1,11 @@
 ﻿using Amazon.CDK;
-using FargateApiCdk;
+using FargateApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Environment = Amazon.CDK.Environment;
 
-namespace FargateApi
+namespace FargateApiCdk
 {
     sealed class Program
     {
@@ -13,8 +13,10 @@ namespace FargateApi
         {
             var app = new App();
             var vpcId = app.Node.TryGetContext("VPC_ID") as string;
-            var certificateArn = app.Node.TryGetContext("CERTIFICATE_ARN") as string; 
-            var ecrRepo = app.Node.TryGetContext("ECR_REPO") as string; 
+            var certificateArn = app.Node.TryGetContext("CERTIFICATE_ARN") as string;
+            var ecrRepo = app.Node.TryGetContext("ECR_REPO") as string;
+            var account = app.Node.TryGetContext("ACCOUNT") as string;
+            var region = app.Node.TryGetContext("REGION") as string;
 
             new FargateApiStack(app, "FargateApiStack", new ApiStackProps
             {
@@ -26,8 +28,8 @@ namespace FargateApi
             {
                 Env = new Environment
                 {
-                    Account = "153247006570",
-                    Region = "ap-southeast-2"
+                    Account = account,
+                    Region = region
                 }
             });
             app.Synth();
